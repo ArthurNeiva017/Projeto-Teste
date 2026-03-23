@@ -21,7 +21,7 @@ public class Main {
         System.out.println("Estoque Livro");
         List<Livro> listaLivros = livroController.listarTodos();
         for(Livro p: listaLivros) {
-        	System.out.println(p.getId() + " - " + p.getNome());
+        	System.out.println(p.getId() + "-" + p.getNome());
         }
         
         Scanner scanner = new Scanner(System.in);
