@@ -28,17 +28,16 @@ public class LivroRepository {
         List<Livro> resultado = new ArrayList<>();
 
         for (Livro livro : livros) {
-<<<<<<< HEAD
-            if (livro.getNome() != null &&
-                livro.getNome().toLowerCase().contains(nome.toLowerCase())) {
-=======
             if (livro.getNome() != null) {
->>>>>>> 7e49e34cbb7ea3fd0ec5f722599a3bb227f36300
+            if (livro.getNome() != null) {
                 resultado.add(livro);
             }
+            
+        
+            }
         }
-
-        return resultado;
+		return resultado;
+        
     }
 
     public void atualizar(Livro livroAtualizado) {

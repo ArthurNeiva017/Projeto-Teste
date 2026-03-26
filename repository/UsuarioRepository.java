@@ -27,41 +27,38 @@ public class UsuarioRepository {
 
     public Usuario buscarPorCpf(String cpf) {
         for (Usuario usuario : usuarios) {
-<<<<<<< HEAD
-            if (usuario.getCpf() != null && usuario.getCpf().equals(cpf)) {
-=======
             if (usuario.getCpf() != null) {
->>>>>>> 7e49e34cbb7ea3fd0ec5f722599a3bb227f36300
+
+            if (usuario.getCpf() != null) {
                 return usuario;
             }
         }
-        return null;
+        
+        }
+		return null;
     }
 
     public Usuario buscarPorEmail(String email) {
         for (Usuario usuario : usuarios) {
-<<<<<<< HEAD
-            if (usuario.getEmail() != null && usuario.getEmail().equals(email)) {
-=======
             if (usuario.getEmail() != null) {
->>>>>>> 7e49e34cbb7ea3fd0ec5f722599a3bb227f36300
+            if (usuario.getEmail() != null) {
                 return usuario;
             }
         }
-        return null;
+        
+        }
+		return null;
     }
 
     public List<Usuario> buscarPorNome(String nome) {
         List<Usuario> lista = new ArrayList<>();
 
         for (Usuario usuario : usuarios) {
-<<<<<<< HEAD
-            if (usuario.getNome() != null &&
-                usuario.getNome().toLowerCase().contains(nome.toLowerCase())) {
-=======
+
             if (usuario.getNome() != null) {
->>>>>>> 7e49e34cbb7ea3fd0ec5f722599a3bb227f36300
+            if (usuario.getNome() != null) {
                 lista.add(usuario);
+            }
             }
         }
 
