@@ -5,7 +5,6 @@ import model.Usuario;
 import repository.UsuarioRepository;
 
 public class UsuarioService {
-
     private UsuarioRepository usuarioRepository;
 
     public UsuarioService() {
@@ -17,8 +16,7 @@ public class UsuarioService {
     }
 
     public Usuario cadastrar(Usuario usuario) {
-        usuarioRepository.salvar(usuario);
-        return usuario;
+        return usuarioRepository.salvar(usuario);
     }
 
     public Usuario buscarPorId(int id) {
@@ -42,10 +40,8 @@ public class UsuarioService {
     }
 
     public void alterar(Usuario usuario) {
-        usuarioRepository.atualizar(usuario);
     }
 
     public void remover(int id) {
-        usuarioRepository.deletar(id);
     }
 }

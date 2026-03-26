@@ -8,8 +8,10 @@ public class EmprestimoRepository {
 
     private List<Emprestimo> emprestimos = new ArrayList<>();
 
-    public void salvar(Emprestimo emprestimo) {
+    public Emprestimo salvar(Emprestimo emprestimo) {
         emprestimos.add(emprestimo);
+		return emprestimo;
+		
     }
 
     public List<Emprestimo> listarTodos() {

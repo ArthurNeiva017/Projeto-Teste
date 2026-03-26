@@ -1,9 +1,7 @@
 package service;
-import java.time.LocalDate;
 import java.util.List;
+
 import model.Emprestimo;
-import model.Livro;
-import model.Usuario;
 import repository.EmprestimoRepository;
 import repository.LivroRepository;
 import repository.UsuarioRepository;
@@ -29,56 +27,16 @@ public class EmprestimoService {
     }
 
     public Emprestimo realizarEmprestimo(int usuarioId, int livroId, int diasEmprestimo) {
-        Usuario usuario = usuarioRepository.buscarPorId(usuarioId);
-        Livro livro = livroRepository.buscarPorId(livroId);
-
-        if (usuario == null) {
-            return null;
-        }
-
-        if (livro == null) {
-            return null;
-        }
-
-        if (livro.getQuantidade() <= 0) {
-            return null;
-        }
-
-        Emprestimo emprestimo = new Emprestimo(
-            proximoId,
-            usuarioId,
-            livroId,
-            LocalDate.now(),
-            LocalDate.now().plusDays(diasEmprestimo)
-        );
-
-        proximoId++;
-
-        livro.setQuantidade(livro.getQuantidade() - 1);
-        livroRepository.atualizar(livro);
-
-        emprestimoRepository.salvar(emprestimo);
-
-        return emprestimo;
+		return emprestimoRepository.salvar(null);
     }
 
     public void devolverLivro(int emprestimoId) {
-        Emprestimo emprestimo = emprestimoRepository.buscarPorId(emprestimoId);
-
-        if (emprestimo != null) {
-            if (emprestimo.isAtivo()) {
-                Livro livro = livroRepository.buscarPorId(emprestimo.getLivroId());
-
-                if (livro != null) {
-                    livro.setQuantidade(livro.getQuantidade() + 1);
-                    livroRepository.atualizar(livro);
-                }
-
-                emprestimo.setAtivo(false);
-                emprestimo.setDataDevoluçaoReal(LocalDate.now());
-                emprestimoRepository.atualizar(emprestimo);
-            }
-        }
+    	List<Emprestimo> emprestimos = emprestimoRepository.listarEmprestimosAtivos();
+    	for (Emprestimo e: emprestimos) {
+    		if (e.getId() == emprestimoId) {
+    			e.setAtivo(false);
+    		}
+    	}
     }
 
     public List<Emprestimo> buscarEmprestimosDoUsuario(int usuarioId) {
@@ -102,16 +60,20 @@ public class EmprestimoService {
     }
 
     public boolean verificarAtraso(int emprestimoId) {
-        Emprestimo emprestimo = emprestimoRepository.buscarPorId(emprestimoId);
-
-        if (emprestimo != null) {
-            if (emprestimo.isAtivo()) {
-                if (LocalDate.now().isAfter(emprestimo.getDataDevolucaoPrevista())) {
+    	List<Emprestimo> emprestimos = emprestimoRepository.listarEmprestimosAtivos();
+    	for (Emprestimo e: emprestimos) {
+    		if (e.getId() == emprestimoId) {
+    			if (e.getDataDevolucaoPrevista() != null) {
+                    e.setAtivo(true);
+                    e.setDataDevoluçaoReal(null);
                     return true;
-                }
-            }
-        }
-
-        return false;
+                } else {
+                    e.setDataDevolucaoPrevista(null);
+                    return false;
+               }
+    		}
+    	}
+    	return false;
     }
+    
 }

@@ -1,11 +1,10 @@
 package service;
 import java.util.List;
+
 import model.Livro;
-import model.Usuario;
 import repository.LivroRepository;
 
 public class LivroService {
-
     private LivroRepository livroRepository;
 
     public LivroService() {
@@ -17,8 +16,7 @@ public class LivroService {
     }
 
     public Livro cadastrar(Livro livro) {
-        livroRepository.salvar(livro);
-        return livro;
+        return livroRepository.salvar(livro);
     }
 
     public Livro buscarPorId(int id) {
@@ -34,10 +32,8 @@ public class LivroService {
     }
 
     public void alterar(Livro livro) {
-        livroRepository.atualizar(livro);
     }
 
     public void remover(int id) {
-        livroRepository.deletar(id);
     }
 }
