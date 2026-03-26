@@ -28,6 +28,7 @@ public class Main {
                 Livro l1 = new Livro(1, "Arthur Neiva", "Aventura", 10, 1000);
                 livroController.cadastrar(l1);
                 break;
+                
             case "2":
             	System.out.println("Estoque Livro");
             	List<Livro>listaLivros =  livroController.listarTodos();

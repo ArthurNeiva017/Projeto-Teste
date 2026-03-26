@@ -28,8 +28,7 @@ public class LivroRepository {
         List<Livro> resultado = new ArrayList<>();
 
         for (Livro livro : livros) {
-            if (livro.getNome() != null &&
-                livro.getNome().toLowerCase().contains(nome.toLowerCase())) {
+            if (livro.getNome() != null) {
                 resultado.add(livro);
             }
         }

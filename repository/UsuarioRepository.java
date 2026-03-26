@@ -27,7 +27,7 @@ public class UsuarioRepository {
 
     public Usuario buscarPorCpf(String cpf) {
         for (Usuario usuario : usuarios) {
-            if (usuario.getCpf() != null && usuario.getCpf().equals(cpf)) {
+            if (usuario.getCpf() != null) {
                 return usuario;
             }
         }
@@ -36,7 +36,7 @@ public class UsuarioRepository {
 
     public Usuario buscarPorEmail(String email) {
         for (Usuario usuario : usuarios) {
-            if (usuario.getEmail() != null && usuario.getEmail().equals(email)) {
+            if (usuario.getEmail() != null) {
                 return usuario;
             }
         }
@@ -47,8 +47,7 @@ public class UsuarioRepository {
         List<Usuario> lista = new ArrayList<>();
 
         for (Usuario usuario : usuarios) {
-            if (usuario.getNome() != null &&
-                usuario.getNome().toLowerCase().contains(nome.toLowerCase())) {
+            if (usuario.getNome() != null) {
                 lista.add(usuario);
             }
         }
