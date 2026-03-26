@@ -26,14 +26,14 @@ A aplicação é dividida em três camadas principais:
 ```
 ┌─────────────────────────────────────┐
 │     CAMADA DE APRESENTAÇÃO          │
-│     (LivroController)             │
+│     (LivroController)               │
 │     - Recebe requisições            │
 │     - Controla o fluxo da aplicação │
 └──────────────┬──────────────────────┘
                │
 ┌──────────────▼──────────────────────┐
 │     CAMADA DE NEGÓCIOS              │
-│     (LivroService)                │
+│     (LivroService)                  │
 │     - Lógica de negócio             │
 │     - Regras de validação           │
 │     - Processamento de dados        │
@@ -41,7 +41,7 @@ A aplicação é dividida em três camadas principais:
                │
 ┌──────────────▼──────────────────────┐
 │     CAMADA DE PERSISTÊNCIA          │
-│     (LivroRepository)             │
+│     (LivroRepository)               │
 │     - Acesso aos dados              │
 │     - Operações no banco de dados   │
 └─────────────────────────────────────┘
