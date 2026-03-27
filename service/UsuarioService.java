@@ -5,7 +5,6 @@ import model.Usuario;
 import repository.UsuarioRepository;
 
 public class UsuarioService {
-
     private UsuarioRepository usuarioRepository;
 
     public UsuarioService() {
@@ -17,35 +16,32 @@ public class UsuarioService {
     }
 
     public Usuario cadastrar(Usuario usuario) {
-        usuarioRepository.salvar(usuario);
-        return usuario;
+        return null;
     }
 
     public Usuario buscarPorId(int id) {
-        return usuarioRepository.buscarPorId(id);
+        return null;
     }
 
     public Usuario buscarPorCpf(String cpf) {
-        return usuarioRepository.buscarPorCpf(cpf);
+        return null;
     }
 
     public Usuario buscarPorEmail(String email) {
-        return usuarioRepository.buscarPorEmail(email);
+        return null;
     }
 
     public List<Usuario> buscarPorNome(String nome) {
-        return usuarioRepository.buscarPorNome(nome);
+        return null;
     }
 
     public List<Usuario> listarTodos() {
-        return usuarioRepository.listarTodos();
+        return null;
     }
 
     public void alterar(Usuario usuario) {
-        usuarioRepository.atualizar(usuario);
     }
 
     public void remover(int id) {
-        usuarioRepository.deletar(id);
     }
 }

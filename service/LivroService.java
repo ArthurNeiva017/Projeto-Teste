@@ -5,7 +5,6 @@ import model.Usuario;
 import repository.LivroRepository;
 
 public class LivroService {
-
     private LivroRepository livroRepository;
 
     public LivroService() {
@@ -17,27 +16,24 @@ public class LivroService {
     }
 
     public Livro cadastrar(Livro livro) {
-        livroRepository.salvar(livro);
-        return livro;
+        return null;
     }
 
     public Livro buscarPorId(int id) {
-        return livroRepository.buscarPorId(id);
+        return null;
     }
 
     public List<Livro> buscarPorNome(String nome) {
-        return livroRepository.buscarPorNome(nome);
+        return null;
     }
 
     public List<Livro> listarTodos() {
-        return livroRepository.listarTodos();
+        return null;
     }
 
     public void alterar(Livro livro) {
-        livroRepository.atualizar(livro);
     }
 
     public void remover(int id) {
-        livroRepository.deletar(id);
     }
 }

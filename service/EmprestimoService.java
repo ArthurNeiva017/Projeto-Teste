@@ -29,89 +29,33 @@ public class EmprestimoService {
     }
 
     public Emprestimo realizarEmprestimo(int usuarioId, int livroId, int diasEmprestimo) {
-        Usuario usuario = usuarioRepository.buscarPorId(usuarioId);
-        Livro livro = livroRepository.buscarPorId(livroId);
-
-        if (usuario == null) {
-            return null;
-        }
-
-        if (livro == null) {
-            return null;
-        }
-
-        if (livro.getQuantidade() <= 0) {
-            return null;
-        }
-
-        Emprestimo emprestimo = new Emprestimo(
-            proximoId,
-            usuarioId,
-            livroId,
-            LocalDate.now(),
-            LocalDate.now().plusDays(diasEmprestimo)
-        );
-
-        proximoId++;
-
-        livro.setQuantidade(livro.getQuantidade() - 1);
-        livroRepository.atualizar(livro);
-
-        emprestimoRepository.salvar(emprestimo);
-
-        return emprestimo;
+        return null;
     }
 
     public void devolverLivro(int emprestimoId) {
-        Emprestimo emprestimo = emprestimoRepository.buscarPorId(emprestimoId);
-
-        if (emprestimo != null) {
-            if (emprestimo.isAtivo()) {
-                Livro livro = livroRepository.buscarPorId(emprestimo.getLivroId());
-
-                if (livro != null) {
-                    livro.setQuantidade(livro.getQuantidade() + 1);
-                    livroRepository.atualizar(livro);
-                }
-
-                emprestimo.setAtivo(false);
-                emprestimo.setDataDevoluçaoReal(LocalDate.now());
-                emprestimoRepository.atualizar(emprestimo);
-            }
-        }
     }
 
     public List<Emprestimo> buscarEmprestimosDoUsuario(int usuarioId) {
-        return emprestimoRepository.buscarPorUsuario(usuarioId);
+        return null;
     }
 
     public List<Emprestimo> buscarEmprestimosAtivosDoUsuario(int usuarioId) {
-        return emprestimoRepository.buscarEmprestimosAtivos(usuarioId);
+        return null;
     }
 
     public List<Emprestimo> listarTodosEmprestimos() {
-        return emprestimoRepository.listarTodos();
+        return null;
     }
 
     public List<Emprestimo> listarEmprestimosAtivos() {
-        return emprestimoRepository.listarEmprestimosAtivos();
+        return null;
     }
 
     public Emprestimo buscarPorId(int id) {
-        return emprestimoRepository.buscarPorId(id);
+        return null;
     }
 
     public boolean verificarAtraso(int emprestimoId) {
-        Emprestimo emprestimo = emprestimoRepository.buscarPorId(emprestimoId);
-
-        if (emprestimo != null) {
-            if (emprestimo.isAtivo()) {
-                if (LocalDate.now().isAfter(emprestimo.getDataDevolucaoPrevista())) {
-                    return true;
-                }
-            }
-        }
-
         return false;
     }
 }
