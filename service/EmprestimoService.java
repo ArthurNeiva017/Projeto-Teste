@@ -63,15 +63,17 @@ public class EmprestimoService {
     	List<Emprestimo> emprestimos = emprestimoRepository.listarEmprestimosAtivos();
     	for (Emprestimo e: emprestimos) {
     		if (e.getId() == emprestimoId) {
-    			if (e.getDataDevolucaoPrevista().isBefore(hoje)) {
+    			if (e.getDataDevolucaoPrevista() != null) {
                     e.setAtivo(true);
-                    e.setAtraso(false);
+                    e.setDataDevoluçaoReal(null);
                     return true;
                 } else {
-                    e.setAtraso(false);
+                    e.setDataDevolucaoPrevista(null);
                     return false;
                }
     		}
     	}
     	return false;
     }
+    
+}

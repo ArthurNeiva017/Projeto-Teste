@@ -9,7 +9,7 @@ public class Emprestimo {
     private LocalDate dataDevolucaoPrevista;
     private LocalDate dataDevoluçaoReal;
     private boolean ativo;
-    private boolean atraso;
+
 
     public Emprestimo() {
     }
@@ -21,7 +21,6 @@ public class Emprestimo {
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucaoPrevista = dataDevolucaoPrevista;
         this.ativo = true;
-        this.atraso = false;
     }
 
     public int getId() {
@@ -77,7 +76,7 @@ public class Emprestimo {
     }
     
     public boolean isAtraso() {
-        return atraso;
+        return this.isAtraso();
     }
 
     public void setAtivo(boolean ativo) {
@@ -85,7 +84,7 @@ public class Emprestimo {
     }
     
     public void setAtraso(boolean atraso) {
-        this.atraso = atraso;
+        this.ativo = atraso;
     }
 
     @Override
