@@ -40,7 +40,6 @@ public class LivroRepository {
         for (int i = 0; i < livros.size(); i++) {
             if (livros.get(i).getId() == livroAtualizado.getId()) {
                 livros.set(i, livroAtualizado);
-                break;
             }
         }
     }
@@ -49,7 +48,6 @@ public class LivroRepository {
         for (int i = 0; i < livros.size(); i++) {
             if (livros.get(i).getId() == id) {
                 livros.remove(i);
-                break;
             }
         }
     }

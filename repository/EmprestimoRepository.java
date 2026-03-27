@@ -1,7 +1,6 @@
 package repository;
 import java.util.ArrayList;
 import java.util.List;
-
 import model.Emprestimo;
 
 public class EmprestimoRepository {
@@ -26,46 +25,45 @@ public class EmprestimoRepository {
     }
 
     public List<Emprestimo> buscarPorUsuario(int usuarioId) {
-        List<Emprestimo> lista = new ArrayList<>();
+        List<Emprestimo> listaEmprestimoBuscarUsuario = new ArrayList<>();
 
         for (Emprestimo emprestimo : emprestimos) {
             if (emprestimo.getUsuarioId() == usuarioId) {
-                lista.add(emprestimo);
+                listaEmprestimoBuscarUsuario.add(emprestimo);
             }
         }
 
-        return lista;
+        return listaEmprestimoBuscarUsuario;
     }
 
     public List<Emprestimo> buscarEmprestimosAtivos(int usuarioId) {
-        List<Emprestimo> lista = new ArrayList<>();
+        List<Emprestimo> listaEmprestimosBuscarAtivos = new ArrayList<>();
 
         for (Emprestimo emprestimo : emprestimos) {
             if (emprestimo.getUsuarioId() == usuarioId && emprestimo.isAtivo()) {
-                lista.add(emprestimo);
+                listaEmprestimosBuscarAtivos.add(emprestimo);
             }
         }
 
-        return lista;
+        return listaEmprestimosBuscarAtivos;
     }
 
     public List<Emprestimo> listarEmprestimosAtivos() {
-        List<Emprestimo> lista = new ArrayList<>();
+        List<Emprestimo> listaEmprestimoAtivo = new ArrayList<>();
 
         for (Emprestimo emprestimo : emprestimos) {
             if (emprestimo.isAtivo()) {
-                lista.add(emprestimo);
+                listaEmprestimoAtivo.add(emprestimo);
             }
         }
 
-        return lista;
+        return listaEmprestimoAtivo;
     }
 
     public void atualizar(Emprestimo emprestimoAtualizado) {
         for (int i = 0; i < emprestimos.size(); i++) {
             if (emprestimos.get(i).getId() == emprestimoAtualizado.getId()) {
                 emprestimos.set(i, emprestimoAtualizado);
-                break;
             }
         }
     }
@@ -74,7 +72,6 @@ public class EmprestimoRepository {
         for (int i = 0; i < emprestimos.size(); i++) {
             if (emprestimos.get(i).getId() == id) {
                 emprestimos.remove(i);
-                break;
             }
         }
     }

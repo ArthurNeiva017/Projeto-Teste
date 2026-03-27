@@ -59,7 +59,6 @@ public class UsuarioRepository {
         for (int i = 0; i < usuarios.size(); i++) {
             if (usuarios.get(i).getId() == usuarioAtualizado.getId()) {
                 usuarios.set(i, usuarioAtualizado);
-                break;
             }
         }
     }
@@ -68,7 +67,6 @@ public class UsuarioRepository {
         for (int i = 0; i < usuarios.size(); i++) {
             if (usuarios.get(i).getId() == id) {
                 usuarios.remove(i);
-                break;
             }
         }
     }
