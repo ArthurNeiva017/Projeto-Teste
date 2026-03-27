@@ -6,7 +6,7 @@ import model.Livro;
 public class LivroRepository {
 
     public Livro salvar(Livro livro) {
-        return null;
+        return livro;
     }
 
     public Livro buscarPorId(int id) {
