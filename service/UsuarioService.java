@@ -16,27 +16,27 @@ public class UsuarioService {
     }
 
     public Usuario cadastrar(Usuario usuario) {
-        return usuarioRepository.salvar(usuario);
+        return null;
     }
 
     public Usuario buscarPorId(int id) {
-        return usuarioRepository.buscarPorId(id);
+        return null;
     }
 
     public Usuario buscarPorCpf(String cpf) {
-        return usuarioRepository.buscarPorCpf(cpf);
+        return null;
     }
 
     public Usuario buscarPorEmail(String email) {
-        return usuarioRepository.buscarPorEmail(email);
+        return null;
     }
 
     public List<Usuario> buscarPorNome(String nome) {
-        return usuarioRepository.buscarPorNome(nome);
+        return null;
     }
 
     public List<Usuario> listarTodos() {
-        return usuarioRepository.listarTodos();
+        return null;
     }
 
     public void alterar(Usuario usuario) {

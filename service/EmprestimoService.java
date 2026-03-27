@@ -27,53 +27,33 @@ public class EmprestimoService {
     }
 
     public Emprestimo realizarEmprestimo(int usuarioId, int livroId, int diasEmprestimo) {
-		return emprestimoRepository.salvar(null);
+        return null;
     }
 
     public void devolverLivro(int emprestimoId) {
-    	List<Emprestimo> emprestimos = emprestimoRepository.listarEmprestimosAtivos();
-    	for (Emprestimo e: emprestimos) {
-    		if (e.getId() == emprestimoId) {
-    			e.setAtivo(false);
-    		}
-    	}
     }
 
     public List<Emprestimo> buscarEmprestimosDoUsuario(int usuarioId) {
-        return emprestimoRepository.buscarPorUsuario(usuarioId);
+        return null;
     }
 
     public List<Emprestimo> buscarEmprestimosAtivosDoUsuario(int usuarioId) {
-        return emprestimoRepository.buscarEmprestimosAtivos(usuarioId);
+        return null;
     }
 
     public List<Emprestimo> listarTodosEmprestimos() {
-        return emprestimoRepository.listarTodos();
+        return null;
     }
 
     public List<Emprestimo> listarEmprestimosAtivos() {
-        return emprestimoRepository.listarEmprestimosAtivos();
+        return null;
     }
 
     public Emprestimo buscarPorId(int id) {
-        return emprestimoRepository.buscarPorId(id);
+        return null;
     }
 
     public boolean verificarAtraso(int emprestimoId) {
-    	List<Emprestimo> emprestimos = emprestimoRepository.listarEmprestimosAtivos();
-    	for (Emprestimo e: emprestimos) {
-    		if (e.getId() == emprestimoId) {
-    			if (e.getDataDevolucaoPrevista() != null) {
-                    e.setAtivo(true);
-                    e.setDataDevoluçaoReal(null);
-                    return true;
-                } else {
-                    e.setDataDevolucaoPrevista(null);
-                    return false;
-               }
-    		}
-    	}
-    	return false;
+        return false;
     }
-    
 }

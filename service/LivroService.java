@@ -16,19 +16,19 @@ public class LivroService {
     }
 
     public Livro cadastrar(Livro livro) {
-        return livroRepository.salvar(livro);
+        return null;
     }
 
     public Livro buscarPorId(int id) {
-        return livroRepository.buscarPorId(id);
+        return null;
     }
 
     public List<Livro> buscarPorNome(String nome) {
-        return livroRepository.buscarPorNome(nome);
+        return null;
     }
 
     public List<Livro> listarTodos() {
-        return livroRepository.listarTodos();
+        return null;
     }
 
     public void alterar(Livro livro) {
